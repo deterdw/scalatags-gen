@@ -8,9 +8,10 @@ As the generated code will in most cases need some fine tuning by hand, it is cu
 
 Pull requests and improvements are most welcome! 
 
-### Untested / unsupported features
+### Untested / unsupported features / issues
 
 * SVG tags and attributes 
+* Large and/or deeply nested documents may lead to memory or stack overflow errors
 
 ## Basic usage
 The `STBuilder` class outputs Strings which are (should be, at least) valid Scala source code. It has some parameters for customising the output: what to use as "tab" for indenting (default: two spaces), which alias to use for the "tags2" part of the bundle (default: "t") and which backend to add imports for (default: "text"). 
