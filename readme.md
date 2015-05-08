@@ -1,10 +1,10 @@
 # ScalaTags-gen: a generator for ScalaTags code from HTML templates
 
-This is a simple utility to help in the generation of ScalaTags snippets and layouts, based on existing HTML by using [JSoup](http://jsoup.org/) nodes as input.
+This is a simple utility to help in the generation of [ScalaTags](https://github.com/lihaoyi/scalatags) snippets and layouts, based on existing HTML by using [JSoup](http://jsoup.org/) nodes as input.
 
 Although it's a young and simple project, it can handle quite a lot of the work for you. It does not use Scala ASTs internally, but does have a few tricks to produce the code, like proper escaping of strings and using reflection to dynamically determine the list of valid tags and attributes in ScalaTags.
 
-As the generated code will in most cases need some fine tuning by hand, it is currently aimed for interactive use from the Scala REPL. Therefore there is no published artifact. The best is to simply clone this repository somewhere and use the tool in that folder. If you want to use is programatically in another project, the source is only one file at this stage, so that's easy to incorporate.
+As the generated code will in most cases need some fine tuning by hand, it is currently aimed for interactive use from the Scala REPL. Therefore there is no published artifact. The best is to simply clone this repository somewhere and use the tool in that folder. If you want to use it programatically in another project, the source is only one file at this stage, so that's easy to incorporate.
 
 Pull requests and improvements are most welcome! 
 
@@ -14,7 +14,7 @@ Pull requests and improvements are most welcome!
 * Large and/or deeply nested documents may lead to memory or stack overflow errors
 
 ## Basic usage
-The `STBuilder` class outputs Strings which are (should be, at least) valid Scala source code. It has some parameters for customising the output: what to use as "tab" for indenting (default: two spaces), which alias to use for the "tags2" part of the bundle (default: "t") and which backend to add imports for (default: "text"). 
+The `STBuilder` class outputs strings which are (should be, at least) valid Scala source code. It has some parameters for customising the output: what to use as "tab" for indenting (default: two spaces), which alias to use for the "tags2" part of the bundle (default: "t") and which backend to add imports for (default: "text"). 
 
 The main useful function of the class is `buildLayout`. This generates the source for a method which will produce the HTML corresponding to a given node. Importantly, it has the ability to replace the content of certain subnodes in the tree with parameters of the generated method, which allows you to build reusable layout. It is documented further in the source, but the best understanding will come from following the example workflow presented below.
 
